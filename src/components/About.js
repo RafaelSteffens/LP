@@ -11,7 +11,7 @@ function About() {
         alignItems: "center",
         backgroundColor: "#f4f4f9",
         minHeight: "50vh",
-        margintop: "0", // Remove margens externas
+        marginTop: "0",
       }}
     >
       <div
@@ -30,54 +30,83 @@ function About() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Espaço para o logo */}
-        <div style={{ flex: "0 0 150px", display: "flex", alignItems: "center" }}>
-          <img src="logo-completo.png" alt="HBR Logo" style={{ maxWidth: "100%" }} />
-        </div>
-
         {/* Seção de texto */}
-        <div style={{ flex: "1", minWidth: "0", margin: "0" }}>
+        <div
+          style={{
+            flex: "1",
+            minWidth: "0",
+            margin: "0",
+            textAlign: "center",
+            padding: "20px",
+            width: "100%", // Garante que o texto ocupe 100% da largura
+          }}
+        >
           <h1
             style={{
-              fontSize: "1.8rem",
+              fontSize: "2rem",
               fontWeight: "bold",
               color: "#333",
-              margin: "0 0 0.5rem 0",
+              margin: "0 0 1rem 0",
               textAlign: "center",
             }}
           >
             Quem somos?
           </h1>
-          <div
+          <p
             style={{
-              padding: "20px 40px", // Adiciona 40px de padding à esquerda e direita
-              margin: "0 auto",      // Centraliza a div com margens automáticas
-              maxWidth: "1200px",    // Define uma largura máxima para manter o texto mais legível em telas grandes
-              backgroundColor: "#f9f9f9", // Exemplo de cor de fundo leve
-              borderRadius: "8px",   // Bordas arredondadas para uma aparência mais suave
+              fontSize: "1.2rem",
+              color: "#333",
+              lineHeight: "1.8",
+              textAlign: "justify",
+              margin: "0",
+              fontWeight: "300",
             }}
           >
-            <p
-              style={{
-                fontSize: "1.2rem",
-                color: "#333",
-                lineHeight: "1.8",
-                textAlign: "justify",
-                margin: "0",
-                fontWeight: "300",
-              }}
-            >
-              A <strong style={{ color: "#007bff" }}>HBR - Hidrogênio Brasil</strong> é uma empresa de inteligência de mercado sediada em Florianópolis, dedicada a capacitar empresas e investidores no setor de hidrogênio. Combinamos tecnologia de ponta e análises detalhadas para fornecer soluções que ajudam nossos clientes a tomar decisões informadas e estratégicas em um setor complexo e em rápida evolução.
-
-              Nossas ferramentas incluem mapas interativos e plataformas analíticas que oferecem uma visão abrangente e atualizada do mercado de hidrogênio. Trabalhamos para tornar os dados acessíveis e acionáveis, permitindo que nossos clientes acompanhem tendências, identifiquem oportunidades e minimizem riscos.
-
-              Na HBR, acreditamos que conhecimento e clareza são fundamentais para a competitividade. Nosso compromisso é ser o recurso de confiança para empresas que buscam liderança e sucesso no mercado de hidrogênio.
-            </p>
-          </div>
-
-
+            A <strong style={{ color: "#007bff" }}>HBR - Hidrogênio Brasil</strong>, com sede em Florianópolis e coordenada por Rafael Steffens, é uma plataforma inovadora de inteligência de mercado voltada para o setor de hidrogênio. Nossa plataforma já mapeia todos os projetos de hidrogênio em andamento no Brasil, oferecendo uma visão analítica e completa das iniciativas no país. Estamos agora em busca de parceiros estratégicos para expandir essa visão, desenvolvendo mapas de potencial de produção e de consumo de hidrogênio.
+          </p>
         </div>
+
+
       </div>
+      
+
+      {/* Estilos de responsividade para mobile */}
+      <style>
+        {`
+          /* Responsividade para telas pequenas */
+          @media (max-width: 768px) {
+            .about-logo {
+              display: none; /* Remove a imagem completamente no mobile */
+            }
+
+            div > div {
+              flex-direction: column; /* Coloca a imagem e o texto em coluna */
+              align-items: center; /* Centraliza o conteúdo */
+              width: 100%; /* Garante que a largura ocupe 100% da tela */
+            }
+
+            div > div > div {
+              width: 100%; /* O texto deve ocupar toda a largura disponível */
+            }
+
+            .about-text {
+              font-size: 1rem; /* Diminui o tamanho da fonte */
+              line-height: 1.6; /* Ajusta o espaçamento entre linhas */
+              padding: 10px; /* Diminui o padding para ajustar melhor */
+              width: 100%; /* Faz o texto ocupar toda a largura da tela */
+            }
+
+            h1 {
+              font-size: 1.5rem; /* Reduz o título */
+            }
+
+            p {
+              font-size: 1rem; /* Reduz o tamanho do texto no mobile */
+              line-height: 1.6; /* Ajusta o espaçamento para mobile */
+            }
+          }
+        `}
+      </style>
     </div>
   );
 }
